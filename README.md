@@ -19,12 +19,48 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
+def linearSearch(array,n,k):
+    for i in range(0,n):
+        if (array[i] == k):
+            return i
+    return -1
+array = eval(input())
+k = eval(input()) 
+n= len(array)
+array.sort()
+result = linearSearch(array,n,k)
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
+def binarySearchIter(array, k, low, high):
+    while low <= high:
+        mid = low + (high - low)//2
+        if array[mid] == k:
+            return mid
+        elif array[mid] < k:
+            low = mid +1
+        else:
+            high = mid -1
+    return -1
+array = eval(input())
+array.sort()
+k = eval(input())
+result = binarySearchIter(array, k ,0, len(array)-1)
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 
@@ -33,6 +69,27 @@ ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
+def BinarySearch(arr, k, low, high):
+    if high >= low:
+        mid = low + (high - low)//2
+        if arr[mid] == k:
+            return mid
+        elif arr[mid] > k:
+            return BinarySearch(arr,k,low,mid-1)
+        else:
+            return BinarySearch(arr,k,mid+1,high)
+    else:
+        return -1
+arr = eval(input())
+arr.sort()
+k = eval(input())
+result = BinarySearch(arr,k,0,len(arr)-1)
+if(result == -1):
+    print(arr)
+    print("Element not found")
+else:
+    print(arr)
+    print("Element found at index: ",result)
 
 
 
@@ -41,9 +98,18 @@ iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
 ## Sample Input and Output
 
+i)  Use a linear search method to match the item in a list.
+
+![Screenshot (13)](https://github.com/anushanirudh/Search-Algorithm/assets/151725737/64b1e5e4-c9fd-4e25-aa31-1a0de9eebd2d)
+
+ii)  Find the element in a list using Binary Search(Iterative Method).
 
 
+![Screenshot (14)](https://github.com/anushanirudh/Search-Algorithm/assets/151725737/377abf86-c803-4c2b-9a1f-7ca528549c7b)
 
+iii)  Find the element in a list using Binary Search (recursive Method).
+
+![Screenshot (15)](https://github.com/anushanirudh/Search-Algorithm/assets/151725737/9e112bab-e644-4c57-90d3-df21270363c7)
 
 
 ## Result
